@@ -3,10 +3,12 @@ import { FontAwesome } from '@expo/vector-icons'
 
 export default function Button({
   label,
-  theme
+  theme,
+  onPress = () => {}
 }: {
   label: string
   theme?: 'primary'
+  onPress: () => void
 }) {
   if (theme === 'primary') {
     return (
@@ -18,7 +20,7 @@ export default function Button({
       >
         <Pressable
           style={[styles.button, { backgroundColor: '#fff' }]}
-          onPress={() => alert('You pressed a button.')}
+          onPress={onPress}
         >
           <FontAwesome
             name='picture-o'
@@ -36,10 +38,7 @@ export default function Button({
 
   return (
     <View style={styles.buttonContainer}>
-      <Pressable
-        style={styles.button}
-        onPress={() => alert('You pressed a button')}
-      >
+      <Pressable style={styles.button} onPress={onPress}>
         <Text style={styles.buttonLabel}>{label}</Text>
       </Pressable>
     </View>

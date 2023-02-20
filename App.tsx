@@ -1,38 +1,47 @@
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, View, Image } from 'react-native'
-import Button from './components/Button'
-import ImageViewer from './components/ImageViewer'
+import * as React from 'react'
+import { View, Text, Button } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-const PlaceholderImage = require('./assets/background-image.png')
-
-export default function App() {
+function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <ImageViewer placeholderImageSource={PlaceholderImage} />
-      </View>
-      <View>
-        <Button theme='primary' label='Choose a photo' />
-        <Button label='Use this photo' />
-      </View>
-      <StatusBar style='auto' />
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Button
+        title='Go to Details'
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  )
+}
+function DetailsScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
     </View>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center'
-  },
-  imageContainer: {
-    flex: 1,
-    paddingTop: 58
-  },
-  image: {
-    width: 320,
-    height: 440,
-    borderRadius: 18
-  }
-})
+const Stack = createNativeStackNavigator<RootStackParamsList>()
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen
+          name='Home'
+          component={HomeScreen}
+          options={{ title: 'Overview' }}
+        />
+        <Stack.Screen name='Details' component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
+
+type RootStackParamsList = {
+  Home: undefined
+  Details: undefined
+}
+
+export default App
