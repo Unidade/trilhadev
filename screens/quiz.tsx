@@ -48,6 +48,12 @@ const tokensDefault: token[] = [
   },
 ]
 
+const stackFibonacci = createNativeStackNavigator()
+
+function FibonacciQuiz() {
+  return
+}
+
 function Quiz() {
   const [tokens, setTokens] = useState(tokensDefault)
 
@@ -67,34 +73,6 @@ function Quiz() {
           <CodeText>{'function fibonnaci() : { const   } 🧙‍♂️'}</CodeText>
         </View>
       </ScrollView>
-      <View style={styles.optsContainer}>
-        {tokens.map((token) => {
-          return (
-            <View key={token.value} style={styles.token}>
-              {token.isOption ? (
-                <Button
-                  title={token.value}
-                  onPress={() =>
-                    setTokens(
-                      tokens.map((t) =>
-                        t.value === token.value ? { ...t, isOption: false } : t,
-                      ),
-                    )
-                  }
-                />
-              ) : (
-                <View style={styles.skeleton} />
-              )}
-            </View>
-          )
-        })}
-      </View>
-      <Button
-        title='Reset'
-        onPress={() =>
-          setTokens(tokens.map((token) => ({ ...token, isOption: true })))
-        }
-      />
     </View>
   )
 }
