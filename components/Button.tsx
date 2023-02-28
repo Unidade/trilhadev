@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons'
 export default function Button({
   label,
   theme,
-  onPress = () => {}
+  onPress = () => {},
 }: {
   label: string
   theme?: 'primary'
@@ -15,7 +15,7 @@ export default function Button({
       <View
         style={[
           styles.buttonContainer,
-          { borderWidth: 4, borderColor: '#ffd33d', borderRadius: 18 }
+          { borderWidth: 4, borderColor: '#ffd33d', borderRadius: 18 },
         ]}
       >
         <Pressable
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 3
+    padding: 3,
   },
   button: {
     borderRadius: 10,
@@ -60,15 +60,15 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
 
   buttonIcon: {
-    paddingRight: 8
+    paddingRight: 8,
   },
 
   buttonLabel: {
     color: '#fff',
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
 })
