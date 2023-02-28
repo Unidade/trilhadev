@@ -1,13 +1,16 @@
 module.exports = {
   env: {
-    browser: true,
+    browser: false,
     es2021: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
     '@react-native-community',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/jsx-runtime',
   ],
   overrides: [],
   parser: '@typescript-eslint/parser',
@@ -19,5 +22,7 @@ module.exports = {
   rules: {
     semi: ['error', 'never'],
     'jsx-quotes': ['error', 'prefer-single'],
+    'react/no-unstable-nested-components': 'off',
+    'react-native/no-inline-styles': 'off',
   },
 }
