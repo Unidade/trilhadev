@@ -62,7 +62,7 @@ function JavavascriptRoad() {
           <TouchableOpacity className=' rounded-full bg-gray-500 px-2 py-2'>
             <AntDesign name='hourglass' size={16} color='white' />
           </TouchableOpacity>
-          <Text style={{ fontFamily: 'Golos' }}>Fibonnaci</Text>
+          <Text style={{ fontFamily: 'Golos' }}>Fibonacci</Text>
         </View>
         <View className='space-y-2 self-center mt-5'>
           <AntDesign name='arrowdown' size={14} color='black' />

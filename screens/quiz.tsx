@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useState } from 'react'
 import { Button, ScrollView, StyleSheet, View, Text } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { CodeText } from '../components/CodeText'
 
@@ -18,7 +19,7 @@ type token = {
   isOption: boolean
 }
 
-const fibbonaci = `function fibonacci(num) {
+const fibbonaci = `function Fibonacci(num) {
   | let fibArr = [0, 1] 
   | for (let i = 2; i <= num; i++) {
     let fibNum = fibArr[i - 1] + fibArr[i - 2];
@@ -51,7 +52,14 @@ const tokensDefault: token[] = [
 const stackFibonacci = createNativeStackNavigator()
 
 function FibonacciQuiz() {
-  return
+  const [setps, setCurrentStep] = useState(0)
+  const [tokens, setTokens] = useState(fibonnaciTokens)
+
+  return (
+    <SafeAreaView>
+      <View></View>
+    </SafeAreaView>
+  )
 }
 
 function Quiz() {
