@@ -17,70 +17,56 @@ export default function AugumentCard({
   color,
   onPress,
 }: ChoiceCardProps) {
-  const darkColor = DarkColor(color)
-
   return (
-    <Shadow
-      distance={3}
-      offset={[0, 1]}
-      startColor={color}
+    <TouchableOpacity
+      activeOpacity={0.6}
+      onPress={onPress}
+      className='flex-1 '
       style={{
-        paddingBottom: 5,
-        flexShrink: 0,
+        borderRadius: 8,
+        backgroundColor: color,
         maxHeight: 200,
         minHeight: 200,
-        borderRadius: 8,
-
-        alignSelf: 'stretch',
+        flex: 1,
+        width: '100%',
+        flexShrink: 0,
       }}
     >
-      <TouchableOpacity
-        activeOpacity={0.6}
-        onPress={onPress}
-        className='flex-1 px-4 py-2'
+      <Shadow
+        distance={3}
+        offset={[0, 1]}
+        startColor={color}
         style={{
           borderRadius: 8,
-          backgroundColor: color,
+          alignSelf: 'stretch',
+          flex: 1,
           maxHeight: 200,
           minHeight: 200,
-
-          width: '100%',
           flexShrink: 0,
         }}
       >
-        <View className='flex-row items-center justify-between'>
-          <StyledText className='text-2xl text-slate-800 tracking-widest '>
-            {title}
-          </StyledText>
-          <View
-            className='items-center justify-center '
-            style={{
-              backgroundColor: darkColor,
-              flexShrink: 0,
-              padding: 7,
-              borderRadius: 10,
-            }}
-          >
-            <Image source={image} style={{ height: 64, width: 64 }} />
+        <View className='px-4 py-2'>
+          <View className='flex-row items-center justify-between'>
+            <StyledText className='text-2xl text-slate-800 tracking-widest '>
+              {title}
+            </StyledText>
+            <View
+              className='items-center justify-center '
+              style={{
+                backgroundColor: color,
+                flexShrink: 0,
+                padding: 7,
+                borderRadius: 10,
+              }}
+            >
+              <Image source={image} style={{ height: 64, width: 64 }} />
+            </View>
+          </View>
+          <View className='mt-5'>
+            <StyledText className='text-base tracking-wider'>{text}</StyledText>
           </View>
         </View>
-        <View className='mt-5'>
-          <StyledText className='text-base tracking-wider'>{text}</StyledText>
-        </View>
-      </TouchableOpacity>
-    </Shadow>
+      </Shadow>
+    </TouchableOpacity>
   )
-}
-
-// Receives a string in the format of rgba(255, 255, 255, 1) return a string in the format of rgba(255, 255, 255, 0.5)
-function DarkColor(color: string) {
-  const rgbaString = color
-  const rgbaArray = rgbaString.split(',') // Convert the string to an array, splitting it by commas
-
-  // Now you can manipulate the last value as needed
-  const newLastValue = 1
-
-  // Finally, put the string back together with the new last value
-  const newRgbaString = `rgba(${rgbaArray[0]}, ${rgbaArray[1]}, ${rgbaArray[2]}, ${newLastValue})`
-  return newRgbaString
 }

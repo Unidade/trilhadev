@@ -36,17 +36,17 @@ const augmentArr: AugmentChoice[] = [
 export default function AugmentScreen() {
   const navigation = useNavigation()
   return (
-    <SafeAreaView className='px-6 py-4 flex-1'>
-      <StyledText className='text-2xl tracking-widest font-medium text-center'>
+    <SafeAreaView className='px-6 pt-4 flex-1 bg-white justify-center'>
+      <StyledText className='text-3xl  tracking-widest font-medium text-center'>
         Faça a sua escolha
       </StyledText>
-      <View className='items-center mt-2'>
+      <View className='items-center mt-10'>
         <Image
           style={{ height: 64, width: 64 }}
           source={require('../assets/images/signpost.png')}
         />
       </View>
-      <View className='mt-6 flex-1' style={{ gap: 15 }}>
+      <View className=' flex-1 flex-shrink-0 mt-10' style={{ gap: 20 }}>
         {augmentArr.map((choice) => (
           <AugumentCard
             key={choice.id}
