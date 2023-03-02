@@ -10,6 +10,7 @@ import CardStackScreen from './screens/cards'
 import QuizStackScreen from './screens/quiz'
 
 import { Montserrat_400Regular } from '@expo-google-fonts/montserrat'
+import AugmentScreen from './screens/augment'
 
 export type TabParamList = {
   Home: undefined
@@ -42,7 +43,7 @@ export default function App() {
   return (
     <NavigationContainer onReady={onLayoutRootView}>
       <Tab.Navigator
-        initialRouteName='Home'
+        initialRouteName='Trilhas'
         screenOptions={({ route }) => {
           return {
             headerShown: false,
@@ -66,6 +67,7 @@ export default function App() {
         <Tab.Screen name='Cards' component={CardStackScreen} />
         <Tab.Screen name='Trilhas' component={TrilhasStackScreen} />
         <Tab.Screen name='Quiz' component={QuizStackScreen} />
+        <Tab.Screen name='Augment' component={AugmentScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   )

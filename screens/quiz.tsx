@@ -49,9 +49,7 @@ const tokensDefault: token[] = [
   },
 ]
 
-const stackFibonacci = createNativeStackNavigator()
-
-function FibonacciQuiz() {
+export function FibonacciQuiz() {
   const [setps, setCurrentStep] = useState(0)
   const [tokens, setTokens] = useState(fibonnaciTokens)
 

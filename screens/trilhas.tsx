@@ -1,5 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useNavigation } from '@react-navigation/native'
+import { Image } from 'expo-image'
+
 import { Pressable, TouchableNativeFeedback } from 'react-native'
 
 import {
@@ -15,6 +17,7 @@ import {
   TouchableHighlight,
   TouchableOpacity,
 } from 'react-native'
+import { FibonacciQuiz } from './quiz'
 
 const StackTrilhas = createNativeStackNavigator()
 
@@ -45,6 +48,7 @@ const trilhas: Trilha[] = [
 ]
 
 function JavavascriptRoad() {
+  const navigation = useNavigation()
   return (
     <View className='items-center py-4'>
       <View className='justify-center items-start'>
@@ -58,12 +62,16 @@ function JavavascriptRoad() {
         <View className='space-y-2 self-center mt-5'>
           <AntDesign name='arrowdown' size={14} color='black' />
         </View>
-        <View className='flex-row items-center mt-6' style={{ gap: 5 }}>
-          <TouchableOpacity className=' rounded-full bg-gray-500 px-2 py-2'>
+        <TouchableOpacity
+          className='flex-row items-center mt-6'
+          style={{ gap: 5 }}
+          onPress={() => navigation.navigate('Fibonacci')}
+        >
+          <View className=' rounded-full bg-gray-500 px-2 py-2'>
             <AntDesign name='hourglass' size={16} color='white' />
-          </TouchableOpacity>
+          </View>
           <Text style={{ fontFamily: 'Golos' }}>Fibonacci</Text>
-        </View>
+        </TouchableOpacity>
         <View className='space-y-2 self-center mt-5'>
           <AntDesign name='arrowdown' size={14} color='black' />
         </View>
@@ -114,6 +122,13 @@ export default function TrilhasStackScreen() {
           headerTitle: 'Trilha do Javascript',
         }}
         component={JavavascriptRoad}
+      />
+      <StackTrilhas.Screen
+        name='Fibonacci'
+        options={{
+          headerShown: false,
+        }}
+        component={FibonacciQuiz}
       />
     </StackTrilhas.Navigator>
   )

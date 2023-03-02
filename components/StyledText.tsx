@@ -1,7 +1,7 @@
 import { StyleSheet, TextProps, Text } from 'react-native'
 
 export default function StyledText(props: TextProps) {
-  return <Text style={[props.style, styles.text]} {...props} />
+  return <Text {...props} style={[props.style, styles.text]} />
 }
 
 const styles = StyleSheet.create({
