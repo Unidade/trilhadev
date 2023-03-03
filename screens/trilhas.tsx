@@ -17,7 +17,6 @@ import {
   TouchableHighlight,
   TouchableOpacity,
 } from 'react-native'
-import { FibonacciQuiz } from './quiz'
 
 const StackTrilhas = createNativeStackNavigator()
 
@@ -122,13 +121,6 @@ export default function TrilhasStackScreen() {
           headerTitle: 'Trilha do Javascript',
         }}
         component={JavavascriptRoad}
-      />
-      <StackTrilhas.Screen
-        name='Fibonacci'
-        options={{
-          headerShown: false,
-        }}
-        component={FibonacciQuiz}
       />
     </StackTrilhas.Navigator>
   )
